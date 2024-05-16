@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container">
+      <a routerLink="/" class="navbar-brand">
+        <i class="fa fa-shopping-cart mr-2"></i>Zimbo-E-Commerce
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a routerLink="/home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/prodotti/display" class="nav-link">Prodotti</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/prodotti/admin" class="nav-link">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+<div class=" container mt-3">
+<div class="row">
+<div class="col">
+<p class="h3 text-success">Sezione Admin</p>
+<p>In questa Sezione L'admin del nostro sito puo' generare prodotti in pochi e semplici passi</p>
+<a routerLink="/prodotti/add" class="btn btn-success btn-sm">Nuovo Admin</a>
+</div>
+</div>
+</div>
+<div class="container mt-3">
+<div class="row">
+<div class="col">
+<table class="table table-striped table-hover text-center">
+<thead class="bg-success text-white">
+<tr>
+<th>Codice</th>
+<th>Prodotti</th>
+<th>Nome</th>
+<th>Prezzo</th>
+<th>Quantità</th>
+<th>Azioni</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let prodotti of prodotti">
+<td *ngIf="prodotti._id">{{getProdottiId(prodotti._id)}}</td>
+<td>
+<img width="50" height="50" [src]="prodotti.immagine" alt="">
+</td>
+<td>{{prodotti.nome}}</td>
+<td>{{prodotti.prezzo}}</td>
+<td>{{prodotti.quantity}}</td>
+<td>
+  <a [routerLink] = "['/edit/prodotti', prodotti._id]" class="btn btn-primary btn-sm">
+  <i class="fa fa-edit"></i>
+  </a>
+  <button class="btn btn-danger btn-sm" (click)="clickDeleteProdotti(prodotti._id)">
+  <i class="fa fa-trash"></i>
+  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

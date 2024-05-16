@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">
+      <i class="fa fa-shopping-cart mr-2"></i>Zimbo-E-Commerce
+    </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/prodotti/display" class="nav-link">Prodotti</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/prodotti/admin" class="nav-link">Admin</a>
+        </li>
+        <!-- Aggiungi l'icona del carrello qui -->
+        <li class="nav-item">
+          <a routerLink="/carrello/prodotti" class="nav-link">
+            <i class="fas fa-shopping-cart" style="color: white; font-size: 18px; cursor: pointer"></i>
+            <!-- Se vuoi visualizzare il numero di articoli nel carrello, puoi farlo qui -->
+             <span class="badge badge-pill badge-danger">{{ cartitems }}</span> 
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="landing-page">
+    <div class="wrapper">
+      <div class="d-flex flex-column justify-content-center align-content-center text-center h-100">
+        <h5 class="display-4">
+        <i class="fa fa-shopping-cart"></i>Zimbo-E-Commerce</h5>
+        <p class="large-text">Prenditi il rischio e continua a testare, perché quello che funziona oggi non funzionerà domani, 
+          ma quello che ha funzionato ieri potrebbe non funzionare oggi.</p>
+        <strong class="large-text">Amrita Sahasrabudhe</strong>
+      </div>
+    </div>
+  </div>
+  
+  

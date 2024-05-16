@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container">
+    <a routerLink="/" class="navbar-brand">
+      <i class="fa fa-shopping-cart mr-2"></i>Zimbo-E-Commerce
+    </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/prodotti/display" class="nav-link">Prodotti</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/prodotti/admin" class="nav-link">Admin</a>
+        </li>
+        <!-- Aggiungi l'icona del carrello qui -->
+        <li class="nav-item">
+          <a routerLink="/carrello/prodotti" class="nav-link">
+            <i class="fas fa-shopping-cart" style="color: white; font-size: 18px; cursor: pointer"></i>
+            <!-- Se vuoi visualizzare il numero di articoli nel carrello, puoi farlo qui -->
+            <span class="badge badge-pill badge-danger">{{ cartitems }}</span>  
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+          <p class="h3 text-success">Lista Prodotti</p>  
+          <p class="large-text">Acquista nei nostri Store e riceverai Uno sconto del 40%</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-md-3" *ngFor="let prodotto of prodotti">
+          <div class="card mt-2">
+              <div class="card-body">
+                  <div class="card-img-actions">
+                      <img [src]="prodotto.immagine" alt="img-fluid" class="img-fluid" style="max-width: 100%; max-height: 200px;">
+                  </div>
+              </div>
+              <div class="card-body bg-light text-center">
+                  <div>
+                      <h6 class="font-weight-semibold">
+                          <a class="text-default">{{ prodotto.nome }}</a>
+                      </h6>
+                  </div>
+                  <h3 class="mb-0 font-weight-semibold">€{{ prodotto.prezzo }}</h3>
+                  <button routerLink="/carrello/prodotti" class="btn btn-sm btn-dark mt-2">
+                    <i class="fa fa-info-circle mr-2"></i> Visualizza Carrello
+                </button>
+                  <button (click)="aggiungialcarrello(prodotto)" class="btn btn-sm btn-warning mt-2">
+                      <i class="fa fa-cart-plus mr-2"></i> Aggiungi al carrello
+                  </button>
+                  <button (click)="rimuoviprodotti(prodotto)" class="btn btn-sm btn-danger mt-2">
+                      <i class="fa fa-remove mr-2"></i> Rimuovi Prodotto
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
